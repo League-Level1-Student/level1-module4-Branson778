@@ -31,9 +31,11 @@ public class FortuneTeller extends JPanel implements Runnable, MouseListener {
    	 // 1. Choose an image for your fortune teller and put it in your default package
    	 fortuneTellerImage = ImageIO.read(getClass().getResource("fortune teller.png"));
    	 // 2. Adjust the frameWidth and frameHeight variables to fit your image nicely (doesn’t need a new line of code)
-     // 3. Complete the begin() method in the FortuneTellerRunner class
+    //done
+   	 // 3. Complete the begin() method in the FortuneTellerRunner class
+   	 //done
  	 // 4. add a mouse listener to the frame
-
+frame.addMouseListener(this);
     }
 
 
@@ -43,23 +45,55 @@ public class FortuneTeller extends JPanel implements Runnable, MouseListener {
    	 int mouseX = e.getX();
    	 int mouseY = e.getY();
    	 // 5. Print the mouseX variable
-
+System.out.println(mouseX+ " "+ mouseY);
    	 // 6. Add the mouseY variable to the previous line so that it prints out too (no new line)
+//done
    	 // 7. Adjust your secret location co-ordinates here:
-   	 int secretLocationX = 0;
-   	 int secretLocationY = 0;
+//253 384
+   	 int secretLocationX = 253;
+   	 int secretLocationY = 384;
    	 /** If the mouse co-ordinates and secret location are close, we'll let them ask a question. */
    	 if (areClose(mouseX, secretLocationX) && areClose(mouseY, secretLocationY)) {
    		 // 8. Get the user to enter a question for the fortune teller
-
+JOptionPane.showInputDialog("What is your question?");
    		 // 9. Find a spooky sound and put it in your _07_fortune_teller package (freesound.org)
    		 // AudioClip sound = JApplet.newAudioClip(getClass().getResource("creepy-noise.wav"));
+//done
    		 // 10. Play the sound
-
+JOptionPane.showMessageDialog(null, "*Text Sound Effect* Oohooo hohoho blwah lahew pewewewew?!?!??!?!?!??!?!?");
    		 // 11. Use the pause() method below to wait until your music has finished
-
+//pause(AudioClip);
    		 // 12. Insert your completed Magic 8 ball code here
-
+// 2. Make a variable that will hold a random number and put a random number into this variable using "new Random().nextInt(4)"
+int lolran = new Random().nextInt(4);
+// 3. Print out this variable
+System.out.println(lolran);
+// 4. Get the user to enter a question for the 8 ball
+//JOptionPane.showInputDialog("What is your question for the all mighty 8-Ball?!");
+// 5. If the random number is 0
+if(lolran==0) {
+JOptionPane.showMessageDialog(null, "Yes!");
+}
+// -- tell the user "Yes"
+//done
+// 6. If the random number is 1
+if(lolran==1) {
+JOptionPane.showMessageDialog(null, "No!");
+}
+// -- tell the user "No"
+//done
+// 7. If the random number is 2
+if(lolran==2) {
+JOptionPane.showMessageDialog(null, "Maybe you should ask Google?!?!");
+}
+// -- tell the user "Maybe you should ask Google?"
+//done
+// 8. If the random number is 3
+if(lolran==3) {
+JOptionPane.showMessageDialog(null, "I don't know, why are you asking me? I just want your money!");
+}
+// -- write your own answer
+//done
    	 }
 
     }
