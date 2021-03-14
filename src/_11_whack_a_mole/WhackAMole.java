@@ -1,10 +1,12 @@
 package _11_whack_a_mole;
 
+import java.applet.AudioClip;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
 import java.util.Random;
 
+import javax.swing.JApplet;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -15,6 +17,10 @@ JFrame frame = new JFrame();
 JPanel panel = new JPanel();
 Random ran = new Random();
 int ranint = ran.nextInt(24);
+int molesWhacked = 0;
+int holesWhacked = 0;
+Date timeAtStart;
+
 boolean mole =false;
 
 	public void run() {
@@ -24,6 +30,7 @@ boolean mole =false;
 		frame.add(panel);
 		frame.setSize(400,175);
 		drawButtons(ranint);
+		timeAtStart=new Date();
 		
 		
 		
@@ -37,7 +44,21 @@ boolean mole =false;
 			panel.removeAll();
 		ranint = ran.nextInt(24);	
 			drawButtons(ranint);
+			molesWhacked += 1;
+			playSound("Explosion+3.wav");
+			if(molesWhacked==10) {
+				endGame(timeAtStart,10);
+				
+			}
+			System.out.println(molesWhacked);
 		}
+	else {
+		holesWhacked +=1;
+		if(holesWhacked == 5) {
+			JOptionPane.showMessageDialog(null, "How in the world did you miss the mole 5 times!? Yes we have moles per second but not a time limit! I have to stop you before you miss the mole 10 times! Geesh!");
+			System.exit(0);
+		}
+	}
 	}
 public void	drawButtons(int number) {
 	for (int i = 0; i < 24; i++) {
@@ -80,4 +101,8 @@ private void endGame(Date timeAtStart, int molesWhacked) {
         }
     }
 } */
+private void playSound(String fileName) { 
+    AudioClip sound = JApplet.newAudioClip(getClass().getResource(fileName));
+    sound.play();
+}
 }
