@@ -11,6 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class SlotMachine implements ActionListener {
@@ -33,6 +34,7 @@ int ranint3 = ran3.nextInt(3);
 		frame.setTitle("Slot Machine");
 		spiin.setText("Spin");
 		spiin.addActionListener(this);
+		frame.pack();
 		
 	}
 	@Override
@@ -40,88 +42,110 @@ int ranint3 = ran3.nextInt(3);
 		int ranint = ran.nextInt(3);
 		int ranint2 = ran2.nextInt(3);
 		int ranint3 = ran3.nextInt(3);
+		panel.removeAll();
+		panel.add(spiin);
+if(ranint==0) {
+	try {
+		loss1 = createLabelImage("orange.jpg");
+	} catch (MalformedURLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	panel.add(loss1);
+	frame.pack();
+}
 if(ranint==1) {
 	try {
-		loss1 = createLabelImage("water.jpg");
+		loss1 = createLabelImage("cherry.jpg");
 	} catch (MalformedURLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
 	panel.add(loss1);
-}
+	frame.pack();
+		}
 if(ranint==2) {
 	try {
-		loss1 = createLabelImage("cat.jpg");
+		loss1 = createLabelImage("banana.jpg");
 	} catch (MalformedURLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
 	panel.add(loss1);
-		}
-if(ranint==3) {
-	try {
-		loss1 = createLabelImage("boom.jpg");
-	} catch (MalformedURLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	panel.add(loss1);
+	frame.pack();
 }
-if(ranint2==1) {
+if(ranint2==0) {
 	try {
-		loss2 = createLabelImage("water.jpg");
+		loss2 = createLabelImage("banana.jpg");
 	} catch (MalformedURLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
 	panel.add(loss2);
+	frame.pack();
 		}
-if(ranint2==2) {
+if(ranint2==1) {
 	try {
-		loss2 = createLabelImage("cat.jpg");
+		loss2 = createLabelImage("orange.jpg");
 	} catch (MalformedURLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}	
 	panel.add(loss2);
+	frame.pack();
 }
-if(ranint2==3) {
+if(ranint2==2) {
 	try {
-		loss2 = createLabelImage("boom.jpg");
+		loss2 = createLabelImage("cherry.jpg");
 	} catch (MalformedURLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
 	panel.add(loss2);
+	frame.pack();
+}
+if(ranint3==0) {
+	try {
+		loss3 = createLabelImage("cherry.jpg");
+	} catch (MalformedURLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	panel.add(loss3);
+	frame.pack();
 }
 if(ranint3==1) {
 	try {
-		loss3 = createLabelImage("water.jpg");
+		loss3 = createLabelImage("banana.jpg");
 	} catch (MalformedURLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
 	panel.add(loss3);
+	frame.pack();
 }
 if(ranint3==2) {
 	try {
-		loss3 = createLabelImage("cat.jpg");
+		loss3 = createLabelImage("orange.jpg");
 	} catch (MalformedURLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
 	panel.add(loss3);
+	frame.pack();
 }
-if(ranint3==3) {
-	try {
-		loss3 = createLabelImage("boom.jpg");
-	} catch (MalformedURLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	panel.add(loss3);
-}
-		
+		if(ranint==0 && ranint2==1 && ranint3==2) {
+			System.out.println("orange win");
+			JOptionPane.showMessageDialog(null, "You won...     ALL your money back and the WITS to leave and never come back!!!");
+		}
+		if(ranint==1 && ranint2==2 && ranint3==0) {
+			System.out.println("cherry win");
+			JOptionPane.showMessageDialog(null, "You won...      ANYTHING AND EVERYTHING YOU WANT!!!!!");
+		}
+		if(ranint==2 && ranint2==0 && ranint3==1) {
+			System.out.println("banana win");
+			JOptionPane.showMessageDialog(null, "You win a...   MONKEY!!!");
+		}
 	}
 	private JLabel createLabelImage(String fileName) throws MalformedURLException{
         URL imageURL = getClass().getResource(fileName);
